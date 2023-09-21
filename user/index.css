@@ -1,0 +1,58 @@
+.banner {
+    background-color: #0B486B;
+    /* สีน้ำเงินเขียว */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+/* เพิ่มสีพื้นหลังให้กับขอบตาราง */
+
+.square {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+
+/* เพิ่มสีพื้นหลังให้กับช่องกรอกข้อมูล */
+
+.item input,
+.item textarea {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+
+/* เพิ่มสีข้อความจำเป็นในช่องกรอกข้อมูล */
+
+.item .required {
+    color: red;
+}
+
+
+/* เพิ่มสีพื้นหลังให้กับปุ่มบันทึก */
+
+.btn-block button {
+    background-color: #0B486B;
+    /* สีน้ำเงินเขียว */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* เพิ่มสีพื้นหลังให้กับรูปภาพในส่วนที่แสดงภาพใน form */
+
+.form-image {
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+}
