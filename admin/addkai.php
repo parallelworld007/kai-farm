@@ -29,7 +29,7 @@ if (isset($_GET['delete'])) {
     <section class="content-header mt-3 ">
         <div class="small-box " style="background-color: #E1D823; color:  FFFFFF ">
             <div class="inner">
-                <h3>เพิ่มไก่</h3>
+                <h3>เพิ่มไก่1</h3>
                 <p>ตารางข้อมูลการเพิ่มไก่</p>
             </div>
             <div class="icon">
