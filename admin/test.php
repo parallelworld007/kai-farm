@@ -208,7 +208,7 @@ page[size="A5"][layout="landscape"] {
     background: #fff;
 }
 </style>
-<a>ควย</a>
+<a>test</a>
 </head>
 
 <link rel="stylesheet" href="style.css">
