@@ -75,10 +75,10 @@ $menu = "d_chicken"
                             if (mysqli_num_rows($result) > 0) {
                                 foreach ($result as $row) {
                                     if ($row['adc_id'] == $adc_id && $row['zon_id'] == $zon_id) {
-                                        $new_adc_total = $row_check['adc_total'] - $d_total;
-                                        // ตรวจสอบว่า new_adc_total มากกว่าหรือเท่ากับ 0 ก่อนทำการอัพเดต
-                                        if ($new_adc_total >= 0) {
-                                            $update_sql = "UPDATE add_chicken SET adc_total = $new_adc_total WHERE adc_id = $adc_id";
+                                        $adc_total_remaining = $row_check['adc_total'] - $d_total;
+                                        // ตรวจสอบว่า adc_total_remaining มากกว่าหรือเท่ากับ 0 ก่อนทำการอัพเดต
+                                        if ($adc_total_remaining >= 0) {
+                                            $update_sql = "UPDATE add_chicken SET adc_total = $adc_total_remaining WHERE adc_id = $adc_id";
                                             $update_sql2 = "UPDATE add_chicken
                                             JOIN (
                                                 SELECT adc_id, SUM(d_total) AS total_sum

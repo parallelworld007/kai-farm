@@ -69,8 +69,7 @@ $menu = "addkai"
                         echo "</script>";
                         header("refresh:1 ; url=addkai.php");
                     } else {
-                        $_SESSION['error'] = "Data has not been inserted successfully";
-                        header("Location: addkai.php");
+                        
                     }
                 }
                 ?>
