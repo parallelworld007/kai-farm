@@ -153,12 +153,9 @@ if (isset($_GET['delete'])) {
             })";
                 echo "</script>";
                 header("refresh:1 ; url=house.php");
-            } else {
-                $_SESSION['error'] = "Data has not been inserted successfully";
-                header("Location: house.php");
+            } 
             }
         }
-    }
     ?>
 
     <div class="modal fade" id="exampleModal" tabindex="2" role="dialog" aria-labelledby="exampleModalLabel">

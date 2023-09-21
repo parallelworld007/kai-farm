@@ -21,9 +21,7 @@ session_start();
         <?php
         include "condb.php";
         if (isset($_POST['submit'])) {
-            $cus_username = $_POST['cus_username'];
-            $cus_password = $_POST['cus_password'];
-            $cus_name = $_POST['cus_name'];
+            $cus_username = $_POST['cus_username']; $cus_password = $_POST['cus_password']; $cus_name = $_POST['cus_name'];
 
             //เช็คข้อมูลซ้ำ
             $sql = "SELECT * FROM `tbl_customer` WHERE cus_username = '$cus_username' ";
@@ -31,39 +29,20 @@ session_start();
             //echo 'จำนวนข้อมูลที่ query ได้' .mysqli_num_rows($result); 
 
             if (mysqli_num_rows($result) > 0) {
-                echo "<script>";
-                echo "Swal.fire({
-                            icon: 'error',
-                            title: 'ไอดีนี้ถูกใช้เแล้ว',
-                            showConfirmButton: false,                
-                            })";
+                echo "<script>"; echo "Swal.fire({icon: 'error',title: 'ไอดีนี้ถูกใช้แล้ว',showConfirmButton: false,})";
                 echo "</script>";
                 header("refresh:1 ; url=register.php");
             } else {
-                $sql = "INSERT INTO `tbl_customer`( `cus_username`,`cus_password`,`cus_name` ) 
-                        VALUES ('$cus_username','$cus_password','$cus_name')";
+                $sql = "INSERT INTO `tbl_customer`( `cus_username`,`cus_password`,`cus_name` ) VALUES ('$cus_username','$cus_password','$cus_name')";
                 $result = mysqli_query($conn, $sql);
-
 
                 if ($sql) {
                     $_SESSION['success'] = "Data has been inserted successfully";
-                    echo "<script>";
-                    echo "Swal.fire({
-                                icon: 'success',
-                                title: 'สมัครไอดีเรียบร้อยแล้ว',
-                                showConfirmButton: false,
-                                timer: 1500,
-                                })";
-                    echo "</script>";
+                    echo "<script>"; echo "Swal.fire({  icon: 'success',  title: 'สมัครไอดีเรียบร้อยแล้ว', showConfirmButton: false, timer: 1500, })"; echo "</script>";
                     header("refresh:1 ; url=index.php");
-                } else {
-                    $_SESSION['error'] = "Data has not been inserted successfully";
-                    header("Location: register.php");
                 }
             }
-        }
-
-        ?>
+        } ?>
         <div class="form-box">
             <div class="form-value">
                 <form action="register.php" method="POST">

@@ -47,7 +47,7 @@ if (isset($_GET['delete'])) {
         <div class="card-header ">
             <h3 class="card-title">รายการเพิ่มข้อมูล เพิ่มไก่</h3>
             <div align="right">
-                
+
             </div>
         </div>
         <br>
@@ -57,37 +57,37 @@ if (isset($_GET['delete'])) {
                 <div class="col-md-12">
 
 
-        <table id="example" class="table table-striped table-bordered" >
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>โรงเรือน</th>
-                <th>โซน</th>
-                <th>นำเข้า</th>
-                <th>วันที่เพิ่ม</th>
-                <th>วันที่ขาย</th>
-                <th>เหลือ</th>
-                <th>ตาย</th>
-                <th>ขาย</th>
-                <th>สถานะ</th>
-                <th>ชื่อผู้ใช้งาน</th>
-                <th style="width:8%;" class="text-center">เพิ่มไก่/ตาย</th>
-    
-                <th style="width:6%;" class="text-center">ลบ</th>
-                <th style="width:3%;" class="text-center">แก้ไข</th>
-               
-                
-            </tr>
-        </thead>
+                    <table id="example" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>โรงเรือน</th>
+                                <th>โซน</th>
+                                <th>นำเข้า</th>
+                                <th>วันที่เพิ่ม</th>
+                                <th>วันที่ขาย</th>
+                                <th>เหลือ</th>
+                                <th>ตาย</th>
+                                <th>ขาย</th>
+                                <th>สถานะ</th>
+                                <th>ชื่อผู้ใช้งาน</th>
+                                <th style="width:8%;" class="text-center">เพิ่มไก่/ตาย</th>
+
+                                <th style="width:6%;" class="text-center">ลบ</th>
+                                <th style="width:3%;" class="text-center">แก้ไข</th>
 
 
-        
-        <tbody>
+                            </tr>
+                        </thead>
+
+
+
+                        <tbody>
                             <?php
                             include "db.php";
-                            $sql = "SELECT h.hou_id,h.hou_name,z.zon_id,z.zon_num,ad.adc_id,ad.adc_num,ad.adc_date,ad.adc_datesell,ad.adc_total,ad.adc_num,ad.adc_d,ad.adc_sell,m.mem_id,m.mem_name           
-                            FROM zone as z
-                            LEFT JOIN house as h ON z.hou_id = h.hou_id
+                            $sql = "SELECT h.hou_id,h.hou_name,z.zon_id,z.zon_num,ad.adc_id,ad.adc_num,ad.adc_date,
+                                    ad.adc_datesell,ad.adc_total,ad.adc_num,ad.adc_d,ad.adc_sell,m.mem_id,m.mem_name           
+                            FROM zone as z LEFT JOIN house as h ON z.hou_id = h.hou_id
                             LEFT JOIN add_chicken as ad ON z.zon_id = ad.zon_id 
                             LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id              
                             ";
@@ -96,114 +96,109 @@ if (isset($_GET['delete'])) {
 
                             // echo 'จำนวนข้อมูลที่ query ได้' .mysqli_num_rows($result);
                             while ($row = mysqli_fetch_assoc($result)) {
-                            
+
                             ?>
                                 <tr readonly>
-                                    <td><?php echo $i++?></td>
+                                    <td><?php echo $i++ ?></td>
                                     <td><?php echo $row['hou_name'] ?></td>
                                     <td><?php echo $row['zon_num'] ?></td>
                                     <td>
                                         <?php
-                                              if ($row['adc_num'] == '') {
-                                                    echo '-';
-                                               } else {
-                                                    echo "". $row['adc_num'] ;
-                                               }
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
-                                              if ($row['adc_date'] == '') {
-                                                    echo '-';
-                                               } else {
-                                                echo date('d-m-Y', strtotime($row['adc_date']));
-                                               }
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
-                                              if ($row['adc_datesell'] == '') {
-                                                    echo '-';
-                                               } else {
-                                                echo date('d-m-Y', strtotime($row['adc_datesell']));
-                                               }
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
-                                              if ($row['adc_total'] == '') {
-                                                    echo '-';
-                                               } else {
-                                                    echo "". $row['adc_total'] ;
-                                               }
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
-                                              if ($row['adc_d'] == '') {
-                                                    echo '-';
-                                               } else {
-                                                    echo "". $row['adc_d'] ;
-                                               }
-                                        ?>
-                                    </td>
-
-                                    <td>
-                                        <?php
-                                              if ($row['adc_sell'] == '') {
-                                                    echo '-';
-                                               } else {
-                                                    echo "". $row['adc_sell'] ;
-                                               }
-                                        ?>
-                                    </td>
-                                    <td>
-                                    <?php
-                                    if (empty($row['adc_date']) || empty($row['adc_datesell'])) {
-                                        $status = '-';
-                                    } else {
-                                        $adcDate = strtotime($row['adc_date']);
-                                        $adcDateSell = strtotime($row['adc_datesell']);
-                                        $currentDate = strtotime(date('Y-m-d'));
-
-                                        if ($currentDate < $adcDateSell) {
-                                            $status = 'เลี้ยง';
+                                        if ($row['adc_num'] == '') {
+                                            echo '-';
                                         } else {
-                                            $status = 'พร้อมขาย';
+                                            echo "" . $row['adc_num'];
                                         }
-                                    }
-                                    echo $status;
-                                    ?>
-                                </td>
+                                        ?>
+                                    </td>
                                     <td>
                                         <?php
-                                              if ($row['mem_name'] == '') {
-                                                    echo '-';
-                                               } else {
-                                                    echo "". $row['mem_name'] ;
-                                               }
+                                        if ($row['adc_date'] == '') {
+                                            echo '-';
+                                        } else {
+                                            echo date('d-m-Y', strtotime($row['adc_date']));
+                                        }
+                                        ?>
+                                    </td>
+                                    <td><?php
+                                        if ($row['adc_datesell'] == '') {
+                                            echo '-';
+                                        } else {
+                                            echo date('d-m-Y', strtotime($row['adc_datesell']));
+                                        }
+                                        ?>
+                                    </td>
+                                    <td><?php if ($row['adc_total'] == '') {
+                                            echo '-';
+                                        } else {
+                                            echo "" . $row['adc_total'];
+                                        } ?> </td>
+                                    <td>
+                                        <?php
+                                        if ($row['adc_d'] == '') {
+                                            echo '-';
+                                        } else {
+                                            echo "" . $row['adc_d'];
+                                        }
+                                        ?>
+                                    </td>
+
+                                    <td>
+                                        <?php
+                                        if ($row['adc_sell'] == '') {
+                                            echo '-';
+                                        } else {
+                                            echo "" . $row['adc_sell'];
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if (empty($row['adc_date']) || empty($row['adc_datesell'])) {
+                                            $status = '-';
+                                        } else {
+                                            $adcDate = strtotime($row['adc_date']);
+                                            $adcDateSell = strtotime($row['adc_datesell']);
+                                            $currentDate = strtotime(date('Y-m-d'));
+
+                                            if ($currentDate < $adcDateSell) {
+                                                $status = 'เลี้ยง';
+                                            } else {
+                                                $status = 'พร้อมขาย';
+                                            }
+                                        }
+                                        echo $status;
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($row['mem_name'] == '') {
+                                            echo '-';
+                                        } else {
+                                            echo "" . $row['mem_name'];
+                                        }
                                         ?>
                                     </td>
 
                                     <td class="text-center">
-                                    <?php if ($row['zon_id'] == '') {
-                                                echo ' ';
-                                           } elseif ($row['adc_id'] == '') {
-                                                echo '<a href="insert_addkai.php?id=' . $row['hou_id'] . '&name=' . $row['zon_id'].'" class="link-success"><i class="fa fa-plus"></i></a>';
-                                            } else {
-                                                echo '<a href="insert_kaid.php?id=' . $row['hou_id'] . '&name=' . $row['zon_id'] . '&name2=' . $row['adc_id'] . '" class="link-dark"><i class="fa fa-plus"></i></a>';
-                                            } ?>
-                                            </td>
-                                           
-                                
-                                            </td>
-                                   <td class="text-center">
-                                            <?php
-                                             if ($row['adc_id'] == '') {
-                                                 echo ' ';
-                                             }else {
-                                                echo '<a data-id="' . $row['adc_id'] . '" href="?delete=' . $row['adc_id'] . '" class="btn btn-danger del-btn fa-solid fa-trash-can "></a>';
-                                                } ?>
+                                        <?php if ($row['zon_id'] == '') {
+                                            echo ' ';
+                                        } elseif ($row['adc_id'] == '') {
+                                            echo '<a href="insert_addkai.php?id=' . $row['hou_id'] . '&name=' . $row['zon_id'] . '" class="link-success"><i class="fa fa-plus"></i></a>';
+                                        } else {
+                                            echo '<a href="insert_kaid.php?id=' . $row['hou_id'] . '&name=' . $row['zon_id'] . '&name2=' . $row['adc_id'] . '" class="link-dark"><i class="fa fa-plus"></i></a>';
+                                        } ?>
+                                    </td>
+
+
+                                    </td>
+                                    <td class="text-center">
+                                        <?php
+                                        if ($row['adc_id'] == '') {
+                                            echo ' ';
+                                        } else {
+                                            echo '<a data-id="' . $row['adc_id'] . '" href="?delete=' . $row['adc_id'] . '" class="btn btn-danger del-btn fa-solid fa-trash-can "></a>';
+                                        } ?>
                                     </td>
 
                                     <td style="text-align: center;">
@@ -222,7 +217,7 @@ if (isset($_GET['delete'])) {
                             }
                             ?>
 
-                            </tbody>
+                        </tbody>
                     </table>
                 </div>
 
@@ -257,12 +252,11 @@ if (isset($_GET['delete'])) {
                                             }).then(() => {
                                                 document.location.href = 'addkai.php';
                                             })
-                                        })           
+                                        })
                                 });
                             },
                         });
                     }
-                   
                 </script>
             </div>
 

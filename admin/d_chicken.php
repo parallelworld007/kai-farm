@@ -149,14 +149,14 @@ if (isset($_GET['delete'])) {
 
                                     </td>
                                     <td>
-                                    <?php
-                                                            // Calculate the remaining chickens
+                                        <?php
+                                        // Calculate the remaining chickens
                                         $remaining_chickens = $row['d_num'] - $row['d_total'];
                                         echo "" . $remaining_chickens;
-                                            ?>
+                                        ?>
 
                                     </td>
-                                    <td><?php  echo date('d-m-Y', strtotime($row['d_date'])); ?></td>
+                                    <td><?php echo date('d-m-Y', strtotime($row['d_date'])); ?></td>
                                     <td><?php echo $row['mem_name'] ?></td>
                                     <td>
                                         <a href="edit_d_chicken.php?id=<?= $row['d_id']; ?>" class="link-Info"><i class="fa-solid fa-pen-to-square fs-5 me-3 "></i></a>
@@ -179,46 +179,46 @@ if (isset($_GET['delete'])) {
                 </div>
 
                 <script>
-        $(".delete-btn").click(function(e) {
-            var userId = $(this).data('id');
-            e.preventDefault();
-            deleteConfirm(userId);
-        })
+                    $(".delete-btn").click(function(e) {
+                        var userId = $(this).data('id');
+                        e.preventDefault();
+                        deleteConfirm(userId);
+                    })
 
-        function deleteConfirm(userId) {
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "คุณต้องการลบข้อมูล!",
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!',
-                showLoaderOnConfirm: true,
-                preConfirm: function() {
-                    return new Promise(function(resolve) {
-                        $.ajax({
-                                url: 'd_chicken.php',
-                                type: 'GET',
-                                data: 'delete=' + userId,
-                            })
-                            .done(function() {
-                                Swal.fire({
-                                    title: 'success',
-                                    text: 'Data deleted successfully!',
-                                    icon: 'success',
-                                }).then(() => {
-                                    document.location.href = 'd_chicken.php';
-                                })
-                            })
-                            .fail(function() {
-                                Swal.fire('Oops...', 'Something went wrong with ajax !', 'error')
-                                window.location.reload();
-                            });
-                    });
-                },
-            });
-        }
-    </script>
+                    function deleteConfirm(userId) {
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "คุณต้องการลบข้อมูล!",
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, delete it!',
+                            showLoaderOnConfirm: true,
+                            preConfirm: function() {
+                                return new Promise(function(resolve) {
+                                    $.ajax({
+                                            url: 'd_chicken.php',
+                                            type: 'GET',
+                                            data: 'delete=' + userId,
+                                        })
+                                        .done(function() {
+                                            Swal.fire({
+                                                title: 'success',
+                                                text: 'Data deleted successfully!',
+                                                icon: 'success',
+                                            }).then(() => {
+                                                document.location.href = 'd_chicken.php';
+                                            })
+                                        })
+                                        .fail(function() {
+                                            Swal.fire('Oops...', 'Something went wrong with ajax !', 'error')
+                                            window.location.reload();
+                                        });
+                                });
+                            },
+                        });
+                    }
+                </script>
             </div>
 
         </div>

@@ -158,7 +158,7 @@ $menu = "d_chicken"
                     </div>
 
                     <div class="col-8" style="margin:0.8rem 0 ;">
-                        <input type="number" class="form-control" id="" name="adc_id" value="<?= $row['adc_id']; ?>" readonly style="display: none;">
+                        <input type="number" class="form-control"  name="adc_id" value="<?= $row['adc_id']; ?>" readonly style="display: none;">
                     </div>
 
                     <?php

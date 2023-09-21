@@ -28,7 +28,6 @@ $menu = "addkai"
                 // ตรวจสอบว่ามีการกด submit หรือไม่
                 if (isset($_POST['submit'])) {
                     include "db.php";
-
                     // รับค่าจากฟอร์ม
                     $hou_id = $_POST['hou_id'];
                     $zon_id = $_POST['zon_id'];
@@ -68,8 +67,6 @@ $menu = "addkai"
                                     })";
                         echo "</script>";
                         header("refresh:1 ; url=addkai.php");
-                    } else {
-                        
                     }
                 }
                 ?>
