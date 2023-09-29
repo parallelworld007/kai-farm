@@ -75,14 +75,14 @@ page[size="A5"][layout="landscape"] {
     #barChart {
       width: 100%;
       /* Make the chart responsive to its container width */
-      max-height: 200px;
+      max-height: 300px;
       /* Set a maximum height for the chart */
     }
   </style>
   <style>
     /* CSS for chart container */
     .chart {
-      max-width: 190px;
+      max-width: 400px;
       /* Adjust the maximum width of the chart container */
       margin: 0 auto;
       /* Center-align the chart container horizontally */
@@ -117,6 +117,11 @@ page[size="A5"][layout="landscape"] {
     }
 
     #tables td {
+      border: 0.1px solid #ddd;
+      padding: 4px;
+    }
+
+    #table td {
       border: 0.1px solid #ddd;
       padding: 4px;
     }
@@ -215,7 +220,187 @@ page[size="A5"][layout="landscape"] {
 
 <!-- Content Header (Page header) -->
 <?php include("header.php"); ?>
+<section class="content-header">
+  <div class="card card-Light mt-2">
+    <div class="container-fluid mt-3">
 
+      <?php
+      include "db.php";
+      $sql = "SELECT * FROM `house`";
+      $result = mysqli_query($conn, $sql);
+     
+      ?>
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3">
+            <!-- small box -->
+            <div class="test11">
+              <div class="small-box" style="background-color: #87D819; color:  FFFFFF ">
+                <div class="inner">
+                  <h3><?php echo mysqli_num_rows($result); ?></h3>
+                  <p>ข้อมูล โรงเรือน</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-book text-light"></i>
+                </div>
+                <a href="house.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+           
+
+
+      <?php
+      include "db.php";
+      $sql = "SELECT * FROM `zone`";
+      $result = mysqli_query($conn, $sql);
+      ?>
+          <div class="col-lg-3 ">
+            <!-- small box -->
+            <div class="small-box " style="background-color: #0BE398; color:  FFFFFF ">
+              <div class="inner">
+                <h3><?php echo mysqli_num_rows($result); ?></h3>
+
+                <p>ข้อมูล โซน</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars text-light"></i>
+              </div>
+              <a href="zone.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <?php
+      include "db.php";
+      $sql = "SELECT * FROM `add_chicken`";
+      $result = mysqli_query($conn, $sql);
+      ?>
+          <!-- ./col -->
+          <div class="col-lg-3">
+            <!-- small box -->
+            <div class="small-box " style="background-color: #E1D823; color:  FFFFFF ">
+              <div class="inner">
+                <h3><?php echo mysqli_num_rows($result); ?></h3>
+
+                <p >ข้อมูล การเพิ่มไก่</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph text-light"></i>
+              </div>
+              <a href="addkai.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          
+          
+          
+          <?php
+      include "db.php";
+      $sql = "SELECT * FROM `care`";
+      $result = mysqli_query($conn, $sql);
+      ?>
+          <!-- ./col -->
+          <div class="col-lg-3 ">
+            <!-- small box -->
+            <div class="small-box " style="background-color: #F4A62E; color:  FFFFFF "> 
+              <div class="inner">
+                <h3><?php echo mysqli_num_rows($result); ?></h3>
+
+                <p>ข้อมูล การเลี้ยง</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-pie-chart text-light"></i>
+              </div>
+              <a href="care.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <?php
+      include "db.php";
+      $sql = "SELECT * FROM `order_head`";
+      $result = mysqli_query($conn, $sql);
+      ?>
+          <div class="col-lg-3">
+            <!-- small box -->
+            <div class="small-box" style="background-color: #AF9FF9 ; color:  FFFFFF ">
+              <div class="inner">
+                <h3><?php echo mysqli_num_rows($result); ?></h3>
+
+                <p>รายการสั่งซื้อ</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-shopping-basket text-light"></i>
+              </div>
+              <a href="sales.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <?php
+      include "db.php";
+      $sql = "SELECT * FROM `product`";
+      $result = mysqli_query($conn, $sql);
+      ?>
+          <div class="col-lg-3">
+            <!-- small box -->
+            <div class="small-box" style="background-color: #9FBEF9; color:  FFFFFF ">
+              <div class="inner">
+                <h3><?php echo mysqli_num_rows($result); ?></h3>
+
+                <p>สินค้า</p>
+              </div>
+              <div class="icon">
+                <i href="product.php" class="fa fa-shopping-cart text-light"></i>
+              </div>
+              <a href="product.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <?php
+      include "db.php";
+      $sql = "SELECT * FROM `tbl_member`";
+      $result = mysqli_query($conn, $sql);
+      ?>
+          <div class="col-lg-3">
+            <!-- small box -->
+            <div class="small-box" style="background-color: #F95433; color:  FFFFFF ">
+              <div class="inner">
+                <h3><?php echo mysqli_num_rows($result); ?></h3>
+
+                <p>ข้อมูล ผู้ใช้งาน</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-id-card text-light"></i>
+              </div>
+              <a href="list_mem.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <?php
+      include "db.php";
+      $sql = "SELECT * FROM `tbl_customer`";
+      $result = mysqli_query($conn, $sql);
+      ?>
+          <div class="col-lg-3 ">
+            <!-- small box -->
+            <div class="small-box " style="background-color: #FA61A0; color:  FFFFFF ">
+              <div class="inner">
+                <h3><?php echo mysqli_num_rows($result); ?></h3>
+
+                <p>ข้อมูล ลูกค้า</p>
+              </div>
+              <div class="icon">
+                <i class="fa fa-address-book text-light "></i>
+              </div>
+              <a href="list_cus.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+      
+      <!-- /.row -->
+      <!-- Main row -->
+      </dvi>
+</section>
 <!-- Main content -->
 <section class="content-header">
   
@@ -364,346 +549,15 @@ if (isset($_GET['searchYear'])) {
     }
 
 ?>
-<center><h5>test</h5>
-      <center><h5>รายงาน</h5>
-      <h2>สีขาวฟาร์ม</h2>
-    </center>
     <div id="mid">
       <div class="info">
         <div id="tables">
 
-
-
-
-
-
-          
-          <table width="20" border="1" cellspacing="0" cellpadding="5">
+                  <table id="chickenTable" width="10" border="1" cellspacing="0" cellpadding="5">
             <tr>
-
-              <td><b>เลขที่เอกสารรายงาน</b> </td>
-              <td></td>
-              <td><b>วันที่ / DATE :</b></td>
-              <td><?php
-                  $today = date("Y-m-d H:i:s"); // รูปแบบ "ปี-เดือน-วัน ชั่วโมง:นาที:วินาที"
-                  echo $today;
-                  ?></td>
-            </tr>
-            <tr>
-
-              <td width="200"><b>ผู้พิมพ์รายงาน </b> </td>
-              <td width="200"></td>
-              <td width="200"><b>เบอร์โทร / TEL :</b> </td>
-              <td width="200">064-231-8695</td>
-            </tr>
-            <tr>
-              <td><b>ที่อยู่ / Address :</b> </td>
-              <td colspan="3">ที่อยู่ของฟาร์ม สีขาวฟาร์ม , อ.นาอาน , อ.เมือง , จ.เลย 42000</td>
-            </tr>
-          </table>
-
-          <table id="chickenTable" width="10" border="1" cellspacing="0" cellpadding="5">
-            <tr>
-              <td width="200"> <?php
-            include "db.php";
-            $sql = "SELECT * FROM `tbl_customer`";
-            $result = mysqli_query($conn, $sql);
-          ?>
-         
-            <!-- small box -->
-            <div class="small-box " style="background-color: #FA61A0; color:  FFFFFF ">
-              <div class="inner">
-                <h3><?php echo mysqli_num_rows($result); ?></h3>
-
-                <p>ข้อมูล ลูกค้า</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-address-book text-light "></i>
-              </div>
-              <a href="list_cus.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </td>
-              <td width="200">
-                <div class="chart">
-                  <h2 style="text-align: center;"><a>จำนวนลูกค้า</a></h2>
-                  <canvas id="genderChart" width="10" height="10"></canvas>
-
-                  <script>
-                    <?php
-                    include "db.php";
-                    // คำสั่ง SQL เพื่อดึงข้อมูลจำนวนลูกค้าแยกตามเพศ
-                    $sql = "SELECT cus_gender, COUNT(*) AS count FROM tbl_customer GROUP BY cus_gender";
-                    $result = $conn->query($sql);
-
-                    $data = array();
-                    while ($row = $result->fetch_assoc()) {
-                      $gender = ($row['cus_gender'] == 1) ? "ชาย" : "หญิง";
-                      $data[] = array('gender' => $gender, 'count' => $row['count']);
-                    }
-
-                    // เพิ่มเงื่อนไขเพื่อเพิ่มข้อมูล "ไม่ระบุเพศ" เมื่อไม่พบข้อมูล
-                    if (empty($data)) {
-                      $data[] = array('gender' => 'ไม่ระบุเพศ', 'count' => 0);
-                    }
-
-                    $conn->close();
-                    ?>
-
-                    // สร้างกราฟวงกลม
-                    var ctx = document.getElementById('genderChart').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                      type: 'pie',
-                      data: {
-                        labels: [
-                          <?php foreach ($data as $item) {
-                            echo "'" . $item['gender'] . "', ";
-                          } ?>
-                        ],
-                        datasets: [{
-                          data: [
-                            <?php foreach ($data as $item) {
-                              echo $item['count'] . ", ";
-                            } ?>
-                          ],
-                          backgroundColor: ['blue', 'pink']
-                        }]
-                      },
-                      options: {
-                        title: {
-                          display: true,
-                          text: 'จำนวนลูกค้าแยกตามเพศ'
-                        }
-                      }
-                    });
-                  </script>
-                </div>
-              </td>
-              <td width="200"> <?php
-        include "db.php";
-        $sql = "SELECT * FROM `tbl_member`";
-        $result = mysqli_query($conn, $sql);
-        ?>
-          
-            <!-- small box -->
-            <div class="small-box" style="background-color: #F95433; color:  FFFFFF ">
-              <div class="inner">
-                <h3><?php echo mysqli_num_rows($result); ?></h3>
-
-                <p>ข้อมูล ผู้ใช้งาน</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-id-card text-light"></i>
-              </div>
-              <a href="list_mem.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </td>
-              <td width="200">
-                <div class="chart">
-                  <h2 style="text-align: center;"><a>จำนวนผู้ใช้งาน</a></h2>
-                  <canvas id="employ" width="10" height="10"></canvas>
-
-                  <script>
-                    <?php
-                    include "db.php";
-                    // คำสั่ง SQL เพื่อดึงข้อมูลจำนวนลูกค้าแยกตามเพศ
-                    $sql = " SELECT mem_sta, COUNT(*) AS count FROM tbl_member GROUP BY mem_sta ";
-                    $result = $conn->query($sql);
-
-                    $data = array();
-                    while ($row = $result->fetch_assoc()) {
-                      $gender = ($row['mem_sta'] == 1) ? "พนักงาน" : "แอดมิน";
-                      $data[] = array('gender' => $gender, 'count' => $row['count']);
-                    }
-
-                    // เพิ่มเงื่อนไขเพื่อเพิ่มข้อมูล "ไม่ระบุเพศ" เมื่อไม่พบข้อมูล
-                    if (empty($data)) {
-                      $data[] = array('gender' => 'ไม่ระบุเพศ', 'count' => 0);
-                    }
-
-                    $conn->close();
-                    ?>
-
-                    // สร้างกราฟวงกลม
-                    var ctx = document.getElementById('employ').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                      type: 'pie',
-                      data: {
-                        labels: [
-                          <?php foreach ($data as $item) {
-                            echo "'" . $item['gender'] . "', ";
-                          } ?>
-                        ],
-                        datasets: [{
-                          data: [
-                            <?php foreach ($data as $item) {
-                              echo $item['count'] . ", ";
-                            } ?>
-                          ],
-                          backgroundColor: ['green', 'black']
-                        }]
-                      },
-                      options: {
-                        title: {
-                          display: true,
-                          text: 'จำนวนลูกค้าแยกตามเพศ'
-                        }
-                      }
-                    });
-                  </script>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td width="200"><b>ผู้ใช้งาน :</b></td>
-              <td width="200">รวม
-              <?php include "db.php";
-                    // คำสั่ง SQL เพื่อดึงข้อมูลจำนวนลูกค้าแยกตามเพศ
-                    $sql = " SELECT cus_id, COUNT(*) AS count FROM tbl_customer ";
-                    $result = mysqli_query($conn, $sql);
-
-                    while ($row = mysqli_fetch_assoc($result)) {
-                    
-                    echo $row['count'];}
-                    ?>
-                    คน
-              </td>
-              <td width="200"><b>สมาชิก :</b></td>
-              <td width="200">รวม
-              <?php include "db.php";
-                    // คำสั่ง SQL เพื่อดึงข้อมูลจำนวนลูกค้าแยกตามเพศ
-                    $sql = " SELECT mem_sta, COUNT(*) AS count FROM tbl_member ";
-                    $result = mysqli_query($conn, $sql);
-
-                    while ($row = mysqli_fetch_assoc($result)) {
-                    
-                    echo $row['count'];}
-                    ?>
-                    คน
-              </td>
-            </tr>
-            <tr>
-              <td width="200"> <?php
-            include "db.php";
-            $sql = "SELECT * FROM `house`";
-            $result = mysqli_query($conn, $sql);
-            ?>
-          
-            <!-- small box -->
-            <div class="test11">
-              <div class="small-box" style="background-color: #87D819; color:  FFFFFF ">
-                <div class="inner">
-                  <h3><?php echo mysqli_num_rows($result); ?></h3>
-                  <p>ข้อมูล โรงเรือน</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-book text-light"></i>
-                </div>
-                <a href="house.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-          </td>
-              <td width="200">
-                <table id="example" style="width:90%">
-
-
-
-
-                  <tbody>
-
-
-                    <?php
-                    include "db.php";
-                    $sql = "SELECT * FROM `house`";
-                    $result = mysqli_query($conn, $sql);
-
-                    // echo 'จำนวนข้อมูลที่ query ได้' .mysqli_num_rows($result);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                      <tr readonly>
-                        <td><?php echo $row['hou_id'] ?></td>
-                        <td><?php echo $row['hou_name'] ?></td>
-
-                      </tr>
-                    <?php
-                    }
-                    ?>
-
-                  </tbody>
-                </table>
-              </td>
-              <td width="200"><?php
-      include "db.php";
-      $sql = "SELECT * FROM `zone`";
-      $result = mysqli_query($conn, $sql);
-      ?>
-          
-            <!-- small box -->
-            <div class="small-box " style="background-color: #0BE398; color:  FFFFFF ">
-              <div class="inner">
-                <h3><?php echo mysqli_num_rows($result); ?></h3>
-
-                <p>ข้อมูล โซน</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars text-light"></i>
-              </div>
-              <a href="zone.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </td>
-              <td width="200">
-                <table id="example" style="width:90%">
-
-                  <tbody>
-
-
-                    <?php
-                    include "db.php";
-                    $sql = "SELECT house.*,zone.* FROM `house`
-    JOIN zone ON house.hou_id = zone.hou_id";
-                    $result = mysqli_query($conn, $sql);
-
-                    // echo 'จำนวนข้อมูลที่ query ได้' .mysqli_num_rows($result);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                      <tr readonly>
-                        <td><?php echo $row['zon_id'] ?></td>
-                        <td><?php echo $row['hou_name'] ?></td>
-                        <td><?php echo $row['zon_num'] ?></td>
-                      </tr>
-                    <?php
-
-                    }
-                    ?>
-
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-
-
-            <tr>
-              <td><?php
-      include "db.php";
-      $sql = "SELECT * FROM `add_chicken`";
-      $result = mysqli_query($conn, $sql);
-      ?>
-          <!-- ./col -->
-            <!-- small box -->
-            <div class="small-box " style="background-color: #E1D823; color:  FFFFFF ">
-              <div class="inner">
-                <h3><?php echo mysqli_num_rows($result); ?></h3>
-
-                <p >ข้อมูล การเพิ่มไก่</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph text-light"></i>
-              </div>
-              <a href="addkai.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </td>
               <td>
                 <div class="chart">
-                  <canvas id="barChart" width="10" height="10"></canvas>
+                <canvas id="barChart" width="190" height="300" style="display: block; box-sizing: border-box; height: 300px; width: 190px;"></canvas>
 
                   <?php
                   include "db.php";
@@ -772,25 +626,7 @@ if (isset($_GET['searchYear'])) {
                   </script>
                 </div>
               </td>
-              <td><?php
-      include "db.php";
-      $sql = "SELECT * FROM `d_chicken`";
-      $result = mysqli_query($conn, $sql);
-      ?>
-          <!-- ./col -->
-            <!-- small box -->
-            <div class="small-box " style="background-color: #848484; color:  FFFFFF "> 
-              <div class="inner">
-                <h3><?php echo mysqli_num_rows($result); ?></h3>
-
-                <p>ข้อมูล การตาย</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-pie-chart text-light"></i>
-              </div>
-              <a href="d_chicken.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </td>
+              
               <td>
                 <?php
                 include "db.php";
@@ -832,53 +668,132 @@ LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id";
 
                 // Display the results in an HTML table
                 ?>
-                <table id="example" style="width:90%">
-                  <tr>
-                    <td width="10">#</td>
-                    <td width="80">โรงเรือน</td>
-                    <td width="50">โซน</td>
-                    <td width="80">เหลือ</td>
-                    <td>ตาย</td>
-                  </tr>
-                  <?php
-                  while ($row = mysqli_fetch_assoc($result)) {
-                    // Calculate the status
-                    if (empty($row['adc_date']) || empty($row['adc_datesell'])) {
-                      $status = "-";
-                    } elseif ($row['adc_date'] == $row['adc_datesell']) {
-                      $status = "พร้อมขาย";
-                    } else {
-                      $status = "เลี้ยง";
-                    }
-                  ?>
-                    <tr>
-                      <td><?php echo $i++ ?></td>
-                      <td><?php echo $row['hou_name'] ?></td>
-                      <td><?php echo $row['zon_num'] ?></td>
-                      <td><?php echo empty($row['adc_total']) ? '-' : $row['adc_total'] ?></td>
-                      <td><?php echo empty($row['adc_d']) ? '-' : $row['adc_d'] ?></td>
-                    </tr>
-                  <?php
-                  }
-                  ?>
-                </table>
+               <table id="example" style="width:100%" >
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>โรงเรือน</th>
+                <th>โซน</th>
+                <th>นำเข้า</th>
+                <th>วันที่เพิ่ม</th>
+                <th>วันที่ขาย</th>
+                <th>เหลือ</th>
+                <th>ตาย</th>
+                <th>ขาย</th>
+                <th>สถานะ</th>
+                
+            </tr>
+        </thead>
+
+
+        
+        <tbody>
+                            <?php
+                            include "db.php";
+                            $sql = "SELECT h.hou_id,h.hou_name,z.zon_id,z.zon_num,ad.adc_id,ad.adc_num,ad.adc_date,ad.adc_datesell,ad.adc_total,ad.adc_num,ad.adc_d,ad.adc_sell,m.mem_id,m.mem_name           
+                            FROM zone as z
+                            LEFT JOIN house as h ON z.hou_id = h.hou_id
+                            LEFT JOIN add_chicken as ad ON z.zon_id = ad.zon_id 
+                            LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id              
+                            ";
+                            $i = 1;
+                            $result = mysqli_query($conn, $sql);
+
+                            // echo 'จำนวนข้อมูลที่ query ได้' .mysqli_num_rows($result);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                            
+                            ?>
+                                <tr readonly>
+                                    <td><?php echo $i++?></td>
+                                    <td><?php echo $row['hou_name'] ?></td>
+                                    <td><?php echo $row['zon_num'] ?></td>
+                                    <td>
+                                        <?php
+                                              if ($row['adc_num'] == '') {
+                                                    echo '-';
+                                               } else {
+                                                    echo "". $row['adc_num'] ;
+                                               }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                              if ($row['adc_date'] == '') {
+                                                    echo '-';
+                                               } else {
+                                                echo date('d-m-Y', strtotime($row['adc_date']));
+                                               }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                              if ($row['adc_datesell'] == '') {
+                                                    echo '-';
+                                               } else {
+                                                echo date('d-m-Y', strtotime($row['adc_datesell']));
+                                               }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                              if ($row['adc_total'] == '') {
+                                                    echo '-';
+                                               } else {
+                                                    echo "". $row['adc_total'] ;
+                                               }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                              if ($row['adc_d'] == '') {
+                                                    echo '-';
+                                               } else {
+                                                    echo "". $row['adc_d'] ;
+                                               }
+                                        ?>
+                                    </td>
+
+                                    <td>
+                                        <?php
+                                              if ($row['adc_sell'] == '') {
+                                                    echo '-';
+                                               } else {
+                                                    echo "". $row['adc_sell'] ;
+                                               }
+                                        ?>
+                                    </td>
+                                    <td>
+                                    <?php
+                                    if (empty($row['adc_date']) || empty($row['adc_datesell'])) {
+                                        $status = '-';
+                                    } else {
+                                        $adcDate = strtotime($row['adc_date']);
+                                        $adcDateSell = strtotime($row['adc_datesell']);
+                                        $currentDate = strtotime(date('Y-m-d'));
+
+                                        if ($currentDate < $adcDateSell) {
+                                            $status = 'เลี้ยง';
+                                        } else {
+                                            $status = 'พร้อมขาย';
+                                        }
+                                    }
+                                    echo $status;
+                                    ?>
+                                </td>
+
+                                </tr>
+                            <?php
+
+                            }
+                            ?>
+
+                            </tbody>
+                    </table>
               </td>
+              
             </tr>
             <tr>
               <td width="200"><b>โรงเรือน</b></td>
-              <td width="200">
-                <?php
-                include "db.php";
-                $sql = "SELECT DATE_FORMAT(o_dttm, '%Y-%m') AS o_year, COUNT(o_total) AS total_per_month
-            FROM `order_head`";
-                while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-                  <?php echo number_format($row['total_per_month']) ?> รายการ
-                <?php
-                }
-                ?>
-              </td>
-              <td width="200"><b>จำนวนยอดขาย</b></td>
               <td width="200">
                 <?php
                 include "db.php";
@@ -1042,28 +957,13 @@ LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id";
                 ?>
 
               </td>
+              </table>
+
+              <table id="chickenTable" width="10" border="1" cellspacing="0" cellpadding="5">
+            
             </tr>
             <tr>
 
-              <td><?php
-      include "db.php";
-      $sql = "SELECT * FROM `order_head`";
-      $result = mysqli_query($conn, $sql);
-      ?>
-     
-            <!-- small box -->
-            <div class="small-box" style="background-color: #AF9FF9 ; color:  FFFFFF ">
-              <div class="inner">
-                <h3><?php echo mysqli_num_rows($result); ?></h3>
-
-                <p>รายการสั่งซื้อ</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-shopping-basket text-light"></i>
-              </div>
-              <a href="sales.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </td>
               <td>
                 <div class="chart">
 
@@ -1143,27 +1043,6 @@ LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id";
                   </script>
                 </div>
               </td>
-              <td><?php
-      include "db.php";
-      $sql = "SELECT DATE_FORMAT(o_dttm, '%Y-%m') AS o_year, SUM(o_total) AS total_per_month
-      FROM `order_head`
-      WHERE o_wait = 'ชำระเงินแล้ว'";
-      $result = mysqli_query($conn, $sql);
-      ?>
-         
-            <!-- small box -->
-            <div class="small-box" style="background-color: #9FBEF9; color:  FFFFFF ">
-              <div class="inner">
-                <h3><?php echo mysqli_num_rows($result); ?></h3>
-
-                <p>ยอดขาย</p>
-              </div>
-              <div class="icon">
-                <i href="product.php" class="fa fa-shopping-cart text-light"></i>
-              </div>
-              <a href="product.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </td>
               <td>
                 <div class="chart">
 
@@ -1228,8 +1107,7 @@ LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id";
               </td>
             </tr>
             <tr>
-              <td width="200"><b>จำนวนรายการสั่งซื้อ</b></td>
-              <td width="200">
+              <td width="200">จำนวนรายการสั่งซื้อ : 
                 <?php
                 include "db.php";
                 $sql = "SELECT DATE_FORMAT(o_dttm, '%Y-%m') AS o_year, COUNT(o_total) AS total_per_month
@@ -1256,8 +1134,7 @@ LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id";
                 }
                 ?>
               </td>
-              <td width="200"><b>จำนวนยอดขาย</b></td>
-              <td width="200">
+              <td width="200">ยอดขาย : 
                 <?php
                 include "db.php";
                 $sql = "SELECT DATE_FORMAT(o_dttm, '%Y-%m') AS o_year, COUNT(o_total) AS total_per_month
@@ -1288,8 +1165,8 @@ LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id";
               </td>
             </tr>
             <tr>
-              <td width="200"><b>รวมที่ต้องได้ :</b></td>
-              <td width="200">
+
+              <td width="200">ที่ต้องได้รับ : 
                 <?php
                 include "db.php";
                 $sql = "SELECT DATE_FORMAT(o_dttm, '%Y-%m') AS o_year, SUM(o_total) AS total_per_month
@@ -1314,8 +1191,7 @@ LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id";
                 }
                 ?>
               </td>
-              <td width="200"><b>รวมยอดขายที่ได้รับ :</b></td>
-              <td width="200">
+              <td width="200">ที่ได้รับ : 
                 <?php
                 include "db.php";
                 $sql = "SELECT DATE_FORMAT(o_dttm, '%Y-%m') AS o_year, SUM(o_total) AS total_per_month
@@ -1349,6 +1225,151 @@ LEFT JOIN tbl_member as m ON ad.mem_id = m.mem_id";
             <tr>
 
           </table>
+          <table id="chickenTable" width="10" border="1" cellspacing="0" cellpadding="5">
+            <tr>
+
+              <td width="400">
+                <div class="chart">
+                  <h2 style="text-align: center;"><a>จำนวนลูกค้า</a></h2>
+                  <canvas id="genderChart" width="10" height="10"></canvas>
+
+                  <script>
+                    <?php
+                    include "db.php";
+                    // คำสั่ง SQL เพื่อดึงข้อมูลจำนวนลูกค้าแยกตามเพศ
+                    $sql = "SELECT cus_gender, COUNT(*) AS count FROM tbl_customer GROUP BY cus_gender";
+                    $result = $conn->query($sql);
+
+                    $data = array();
+                    while ($row = $result->fetch_assoc()) {
+                      $gender = ($row['cus_gender'] == 1) ? "ชาย" : "หญิง";
+                      $data[] = array('gender' => $gender, 'count' => $row['count']);
+                    }
+
+                    // เพิ่มเงื่อนไขเพื่อเพิ่มข้อมูล "ไม่ระบุเพศ" เมื่อไม่พบข้อมูล
+                    if (empty($data)) {
+                      $data[] = array('gender' => 'ไม่ระบุเพศ', 'count' => 0);
+                    }
+
+                    $conn->close();
+                    ?>
+
+                    // สร้างกราฟวงกลม
+                    var ctx = document.getElementById('genderChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                      type: 'pie',
+                      data: {
+                        labels: [
+                          <?php foreach ($data as $item) {
+                            echo "'" . $item['gender'] . "', ";
+                          } ?>
+                        ],
+                        datasets: [{
+                          data: [
+                            <?php foreach ($data as $item) {
+                              echo $item['count'] . ", ";
+                            } ?>
+                          ],
+                          backgroundColor: ['blue', 'pink']
+                        }]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'จำนวนลูกค้าแยกตามเพศ'
+                        }
+                      }
+                    });
+                  </script>
+                </div>
+              </td>
+             
+              <td width="400">
+                <div class="chart">
+                  <h2 style="text-align: center;"><a>จำนวนผู้ใช้งาน</a></h2>
+                  <canvas id="employ" width="10" height="10"></canvas>
+
+                  <script>
+                    <?php
+                    include "db.php";
+                    // คำสั่ง SQL เพื่อดึงข้อมูลจำนวนลูกค้าแยกตามเพศ
+                    $sql = " SELECT mem_sta, COUNT(*) AS count FROM tbl_member GROUP BY mem_sta ";
+                    $result = $conn->query($sql);
+
+                    $data = array();
+                    while ($row = $result->fetch_assoc()) {
+                      $gender = ($row['mem_sta'] == 1) ? "พนักงาน" : "แอดมิน";
+                      $data[] = array('gender' => $gender, 'count' => $row['count']);
+                    }
+
+                    // เพิ่มเงื่อนไขเพื่อเพิ่มข้อมูล "ไม่ระบุเพศ" เมื่อไม่พบข้อมูล
+                    if (empty($data)) {
+                      $data[] = array('gender' => 'ไม่ระบุเพศ', 'count' => 0);
+                    }
+
+                    $conn->close();
+                    ?>
+
+                    // สร้างกราฟวงกลม
+                    var ctx = document.getElementById('employ').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                      type: 'pie',
+                      data: {
+                        labels: [
+                          <?php foreach ($data as $item) {
+                            echo "'" . $item['gender'] . "', ";
+                          } ?>
+                        ],
+                        datasets: [{
+                          data: [
+                            <?php foreach ($data as $item) {
+                              echo $item['count'] . ", ";
+                            } ?>
+                          ],
+                          backgroundColor: ['green', 'black']
+                        }]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'จำนวนลูกค้าแยกตามเพศ'
+                        }
+                      }
+                    });
+                  </script>
+                </div>
+              </td>
+            </tr>
+          
+
+
+            <tr>
+              <td width="200">customer รวม
+              <?php include "db.php";
+                    // คำสั่ง SQL เพื่อดึงข้อมูลจำนวนลูกค้าแยกตามเพศ
+                    $sql = " SELECT cus_id, COUNT(*) AS count FROM tbl_customer ";
+                    $result = mysqli_query($conn, $sql);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    
+                    echo $row['count'];}
+                    ?>
+                    คน
+              </td>
+              <td width="200">member รวม
+              <?php include "db.php";
+                    // คำสั่ง SQL เพื่อดึงข้อมูลจำนวนลูกค้าแยกตามเพศ
+                    $sql = " SELECT mem_sta, COUNT(*) AS count FROM tbl_member ";
+                    $result = mysqli_query($conn, $sql);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    
+                    echo $row['count'];}
+                    ?>
+                    คน
+              </td>
+            </tr>
+            </table>
 
         </div>
 
