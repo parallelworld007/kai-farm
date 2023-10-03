@@ -214,10 +214,10 @@ ob_start();
     </table>
 
     <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
-        <span style="margin-right: 10px;">(Total) นำเข้า: <?php echo $adc_num_total; ?></span>
-        <span style="margin-right: 10px;"> เหลือ: <?php echo $adc_total_total; ?></span>
-        <span style="margin-right: 10px;"> ตาย: <?php echo $adc_d_total; ?></span>
-        <span> ขาย: <?php echo $adc_sell_total; ?></span>
+        <span style="margin-right: 10px;">(Total) นำเข้า: <?php echo $adc_num_total; ?> ตัว</span>
+        <span style="margin-right: 10px;"> เหลือ: <?php echo $adc_total_total; ?> ตัว</span>
+        <span style="margin-right: 10px;"> ตาย: <?php echo $adc_d_total; ?> ตัว</span>
+        <span> ขาย: <?php echo $adc_sell_total; ?> ตัว</span>
     </div>
 
    
