@@ -148,8 +148,8 @@ ob_start();
 // แสดงผลรวมข้อมูลเพศ
 ?>
 <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
-    <span style="margin-right: 10px;">(Total) ชาย: <?php echo $totalMale; ?></span>,
-    <span style="margin-right: 10px;">หญิง: <?php echo $totalFemale; ?></span>
+    <span style="margin-right: 10px;">(Total) ชาย: <?php echo $totalMale; ?> คน</span>,
+    <span style="margin-right: 10px;">หญิง: <?php echo $totalFemale; ?> คน</span>
 </div>
 
 
@@ -159,7 +159,7 @@ ob_start();
         $mpdf->Output("cus.pdf");
         ob_end_flush();
         ?>
-        <a href="cus.pdf" class="btn btn-primary">โหลด(pdf)</a>
+        <a href="cus.pdf" class="btn btn-primary">Print(pdf)</a>
     </div>
 </body>
 

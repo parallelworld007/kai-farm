@@ -101,7 +101,7 @@ ob_start();
                 <th>ตาย</th>
                 <th>ขาย</th>
                 <th>สถานะ</th>
-                <th>ชื่อผู้ใช้งาน</th>        
+                      
             </tr>
         </thead>
         <tbody>
@@ -191,15 +191,7 @@ ob_start();
                         ?>
                     </td>
                     <td><?php echo $status ?></td>
-                    <td>
-                        <?php
-                              if ($row['mem_name'] == '') {
-                                    echo '-';
-                               } else {
-                                    echo "". $row['mem_name'] ;
-                               }
-                        ?>
-                    </td>
+                   
                 </tr>
                 <?php
                   $adc_num_total += $row['adc_num'];
@@ -228,7 +220,7 @@ ob_start();
     ob_end_flush();
     ?>
     
-    <a href="addkai.pdf" class="btn btn-primary">โหลด(pdf)</a>
+    <a href="addkai.pdf" class="btn btn-primary">Print(pdf)</a>
 </div>
 </body>
 </html>

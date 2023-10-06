@@ -145,7 +145,6 @@ ob_start();
                     <th>โซน</th>
                     <th>ขาย</th>
                     <th>วันที่ขาย</th>
-                    <th>ชื่อผู้ใช้งาน</th>
                 </tr>
             <tbody>
 
@@ -198,7 +197,6 @@ ob_start();
                               
                                  
                                     <td><?php echo date('d-m-Y', strtotime($row['s_date'])); ?></td>
-                                    <td><?php echo $row['mem_name'] ?></td>
                                     
                             </tr>
                 <?php
@@ -215,7 +213,7 @@ ob_start();
         </table>
 
         <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
-            <span style="margin-right: 10px;">Total (ขาย): <?php echo $total_s_total; ?></span>
+            <span style="margin-right: 10px;">Total (ขาย): <?php echo $total_s_total; ?> ตัว</span>
             
         </div>
 

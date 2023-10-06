@@ -165,7 +165,7 @@ ob_start();
         $mpdf->Output("zone.pdf");
         ob_end_flush();
         ?>
-        <a href="zone.pdf" class="btn btn-primary">โหลด(pdf)</a>
+        <a href="zone.pdf" class="btn btn-primary">Print(pdf)</a>
     </div>
 
 </body>

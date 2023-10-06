@@ -107,7 +107,7 @@ ob_start();
     </table>
 
         <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
-                <span style="margin-right: 10px;">(Total) โรงเรือนทั้งหมด :<?php echo mysqli_num_rows($result); ?></span>
+                <span style="margin-right: 10px;">(Total)ทั้งหมด : <?php echo mysqli_num_rows($result); ?> โรงเรือน</span>
         </div>
     <?php
     $html = ob_get_contents();
@@ -115,7 +115,7 @@ ob_start();
     $mpdf->Output("house.pdf");
     ob_end_flush();
     ?>
-    <a href="house.pdf" class="btn btn-primary">โหลด(pdf)</a>
+    <a href="house.pdf" class="btn btn-primary">Print(pdf)</a>
 </div>
 </body>
 </html>

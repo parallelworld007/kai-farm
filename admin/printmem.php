@@ -167,10 +167,10 @@ ob_start();
         // แสดงผลรวมข้อมูลเพศและระดับการใช้งาน
         ?>
         <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
-            <span style="margin-right: 10px;">(Total) ชาย: <?php echo $totalMale; ?></span>,
-            <span style="margin-right: 10px;">หญิง: <?php echo $totalFemale; ?></span>,
-            <span style="margin-right: 10px;">ผู้ดูแลระบบ: <?php echo $totalAdmin; ?></span>,
-            <span style="margin-right: 10px;">พนักงาน: <?php echo $totalEmployee; ?></span>
+            <span style="margin-right: 10px;">(Total) ชาย: <?php echo $totalMale; ?> คน</span>,
+            <span style="margin-right: 10px;">หญิง: <?php echo $totalFemale; ?> คน</span>,
+            <span style="margin-right: 10px;">ผู้ดูแลระบบ: <?php echo $totalAdmin; ?> คน</span>,
+            <span style="margin-right: 10px;">พนักงาน: <?php echo $totalEmployee; ?> คน</span>
         </div>
 
         <?php
@@ -179,7 +179,7 @@ ob_start();
         $mpdf->Output("mem.pdf");
         ob_end_flush();
         ?>
-        <a href="mem.pdf" class="btn btn-primary">โหลด(pdf)</a>
+        <a href="mem.pdf" class="btn btn-primary">Print(pdf)</a>
     </div>
 </body>
 

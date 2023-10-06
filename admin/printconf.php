@@ -195,7 +195,7 @@ $total_o_total = 0;
         </table>
 
         <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
-            <span style="margin-right: 10px;">Total (จำนวนเงิน): <?php echo $total_o_total; ?></span>   
+            <span style="margin-right: 10px;">Total (จำนวนเงิน): <?php echo $total_o_total; ?> บาท</span>   
         </div>
 
         <?php
@@ -205,7 +205,7 @@ $total_o_total = 0;
         ob_end_flush();
         ?>
 
-        <a href="conf.pdf" class="btn btn-primary">โหลด(pdf)</a>
+        <a href="conf.pdf" class="btn btn-primary">Print(pdf)</a>
     </div>
 </body>
 

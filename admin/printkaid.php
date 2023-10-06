@@ -145,7 +145,7 @@ ob_start();
                     <th>สาเหตุ</th>
                     <!-- <th>เหลือ</th> -->
                     <th>วันที่ตาย</th>
-                    <th>ชื่อผู้ใช้งาน</th>
+                   
                 </tr>
               
 
@@ -239,7 +239,7 @@ ob_start();
 
                                 </td> -->
                                 <td><?php echo date('d-m-Y', strtotime($row['d_date'])); ?></td>
-                                <td> <?php echo $row['mem_name'] ?></td>
+                            
                             </tr>
                 <?php
                             $total_d_total += $row['d_total'];
@@ -261,7 +261,7 @@ ob_start();
     
 
         <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
-            <span style="margin-right: 10px;">Total (ตาย): <?php echo $total_d_total; ?></span>
+            <span style="margin-right: 10px;">Total (ตาย): <?php echo $total_d_total; ?> ตัว</span>
         </div>
 
 
@@ -274,7 +274,7 @@ ob_start();
             ob_end_flush();
         ?>
 
-        <a href="kaid.pdf" class="btn btn-primary">โหลด(pdf)</a>
+        <a href="kaid.pdf" class="btn btn-primary">Print(pdf)</a>
 
 
     </div>
