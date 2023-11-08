@@ -224,7 +224,7 @@ ob_start();
         ob_end_flush();
         ?>
 
-        <a href="s_chicken.pdf" class="btn btn-primary">โหลด(pdf)</a>
+        <a href="s_chicken.pdf" class="btn btn-primary">Print(pdf)</a>
     </div>
 </body>
 
