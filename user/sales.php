@@ -22,8 +22,8 @@ if (isset($_GET['delete'])) {
     <section class="content-header  mt-3">
         <div class="small-box " style="background-color: #AF9FF9; color:  FFFFFF ">
             <div class="inner">
-                <h3>รายการตรวจสอบรายการสั่งซื้อ</h3>
-                <p>ตารางตรวจสอบรายการสั่งซื้อ</p>
+                <h3>รายการตรวจสอบรายการสั่งจอง</h3>
+                <p>ตารางตรวจสอบรายการสั่งจอง</p>
             </div>
             <div class="icon">
                 <i class="fa fa-shopping-basket text-light"></i>

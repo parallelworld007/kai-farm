@@ -143,15 +143,7 @@
           </a>
         </li>
         
-        <li class="nav-item">
-          <a href="report.php" class="nav-link <?php if ($menu == "report") {
-                                                echo "active";
-                                              } ?> ">
-            <i class="fa-solid fa-file-lines"></i>
-            <p>รายงานทั้งหมดของเว็บ</p>
-          </a>
-        </li>
-
+      
         
         
       </ul>

@@ -1,3 +1,5 @@
+
+
 <style>
     .f4 {
         width: 50%;
@@ -5,6 +7,28 @@
         margin-left: 35%;
     }
 </style>
+<?php
+$totalsell = 0;
+$totalnsell = 0;
+
+include "db.php";
+
+if (isset($_GET['from_date']) && isset($_GET['to_date'])) {
+    $from_date = $_GET['from_date'];
+    $to_date = $_GET['to_date'];
+
+    $sql = "SELECT * FROM `order_head` WHERE o_dttm BETWEEN '$from_date' AND '$to_date'";
+    $result = mysqli_query($conn, $sql);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($row['o_wait'] == "ชำระเงินแล้ว") {
+            $totalsell++;
+        } elseif ($row['o_wait'] == "ยังไม่มารับสินค้า") {
+            $totalnsell++;
+        }
+    }
+}
+?>
 <form action="" method="GET" class="f4">
     <div class="row">
         <div class="col-md-3">
@@ -31,6 +55,8 @@
         </div>
     </div>
 </form>
+
+
 
 <?php
 
@@ -186,17 +212,21 @@ $total_o_total = 0;
                 </tr>
             <?php
                  $total_o_total += $row['o_total'];
+                 
                 }
+                
             } else {
                 echo "No Record Found";
             }
         ?>
             </tbody>
         </table>
-
-        <!-- <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
-            <span style="margin-right: 10px;">Total (จำนวนเงิน): <?php echo $total_o_total; ?> บาท</span>   
-        </div> -->
+       
+        <div class="row" style="font-size: 20px; font-weight: bold; text-align: left; margin-left: 30px;">
+            <span style="margin-right: 10px;">(Total) ชำระเงินแล้ว: <?php echo $totalsell; ?> รายการ</span>,
+            <span style="margin-right: 10px;">ยังไม่มารับสินค้า: <?php echo $totalnsell; ?> รายการ</span>
+        </div>
+      
 
         <?php
         $html = ob_get_contents();
